@@ -22,8 +22,10 @@ public class LoadRewarded : MonoBehaviour,IUnityAdsLoadListener,IUnityAdsShowLis
 
     public void OnUnityAdsAdLoaded(string placementId)
     {
-        if(placementId.Equals(_adUnitId))
+        if(placementId.Equals(_adUnitId)){
             Debug.Log("Interstitial loaded");
+            ShowAd();    
+        }
     }
 
     public void OnUnityAdsFailedToLoad(string placementId, UnityAdsLoadError error, string message)

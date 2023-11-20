@@ -24,6 +24,7 @@ public class LoadInterstitial : MonoBehaviour,IUnityAdsLoadListener,IUnityAdsSho
     public void OnUnityAdsAdLoaded(string placementId)
     {
         Debug.Log("Interstitial loaded");
+        ShowAd();
     }
 
     public void OnUnityAdsFailedToLoad(string placementId, UnityAdsLoadError error, string message)

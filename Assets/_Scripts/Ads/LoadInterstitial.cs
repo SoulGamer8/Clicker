@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Advertisements;
 // 
@@ -5,6 +6,10 @@ public class LoadInterstitial : MonoBehaviour,IUnityAdsLoadListener,IUnityAdsSho
 {
     [SerializeField] private string _androidAdUnitId;
     [SerializeField] private string _iosAdUnitId;
+
+    [SerializeField] private float _timeToShowAd;
+    [SerializeField] private bool _isAdShow=true;
+    private float _timer=0;
 
     private string _adUnitId;
 
@@ -14,6 +19,8 @@ public class LoadInterstitial : MonoBehaviour,IUnityAdsLoadListener,IUnityAdsSho
 #elif UNITY_ANDROID
         _adUnitId = _androidAdUnitId;
 #endif
+        if(_isAdShow)
+            StartCoroutine(TimeShowAd());
     }
 
     public void LoadAd(){
@@ -44,7 +51,7 @@ public class LoadInterstitial : MonoBehaviour,IUnityAdsLoadListener,IUnityAdsSho
 
     public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState)
     {
-        print("Interstitial show complete");
+        _timer=0;
     }
 
     public void OnUnityAdsShowFailure(string placementId, UnityAdsShowError error, string message)
@@ -55,5 +62,13 @@ public class LoadInterstitial : MonoBehaviour,IUnityAdsLoadListener,IUnityAdsSho
     public void OnUnityAdsShowStart(string placementId)
     {
          print("Interstitial show start");
+    }
+
+
+    IEnumerator TimeShowAd(){
+        while(true){
+           yield return new WaitForSeconds(_timeToShowAd);
+                LoadAd();
+        }
     }
 }

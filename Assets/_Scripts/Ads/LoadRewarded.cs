@@ -1,8 +1,12 @@
 using UnityEngine;
 using UnityEngine.Advertisements;
+using UnityEngine.Events;
 public class LoadRewarded : MonoBehaviour,IUnityAdsLoadListener,IUnityAdsShowListener
 {
-     [SerializeField] private string _androidAdUnitId;
+
+    public UnityAction AdComplete;
+
+    [SerializeField] private string _androidAdUnitId;
     [SerializeField] private string _iosAdUnitId;
 
     private string _adUnitId;
@@ -16,21 +20,21 @@ public class LoadRewarded : MonoBehaviour,IUnityAdsLoadListener,IUnityAdsShowLis
     }
 
     public void LoadAd(){
-        print("Loading interstitial");
+        print("Loading Rewarded");
         Advertisement.Load(_adUnitId,this);
     }
 
     public void OnUnityAdsAdLoaded(string placementId)
     {
         if(placementId.Equals(_adUnitId)){
-            Debug.Log("Interstitial loaded");
+            Debug.Log("Rewarded loaded");
             ShowAd();    
         }
     }
 
     public void OnUnityAdsFailedToLoad(string placementId, UnityAdsLoadError error, string message)
     {
-        Debug.Log("Interstitial failed to load");
+        Debug.Log("Rewarded failed to load");
     }
 
 
@@ -40,22 +44,23 @@ public class LoadRewarded : MonoBehaviour,IUnityAdsLoadListener,IUnityAdsShowLis
     }
     public void OnUnityAdsShowClick(string placementId)
     {
-       print("Interstitial clicked");
+       print("Rewarded clicked");
     }
 
     public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState)
     {
         if(placementId.Equals(_adUnitId) && showCompletionState.Equals(UnityAdsCompletionState.COMPLETED))
-            print("Interstitial show complete");
+            AdComplete.Invoke();
+            print("Rewarded show complete");
     }
 
     public void OnUnityAdsShowFailure(string placementId, UnityAdsShowError error, string message)
     {
-         print("Interstitial show failure");
+         print("Rewarded show failure");
     }
 
     public void OnUnityAdsShowStart(string placementId)
     {
-         print("Interstitial show start");
+         print("Rewarded show start");
     }
 }

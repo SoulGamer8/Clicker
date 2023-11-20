@@ -8,7 +8,7 @@ public class LoadBanners : MonoBehaviour
     
     private string _adUnitId;
 
-    BannerPosition bannerPosition = BannerPosition.TOP_CENTER;
+    BannerPosition bannerPosition = BannerPosition.BOTTOM_CENTER;
 
     private void Start() {
 #if UNITY_IOS

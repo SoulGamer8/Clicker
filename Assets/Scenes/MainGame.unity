@@ -604,9 +604,9 @@ MonoBehaviour:
   AdComplete:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 419632142}
-        m_TargetAssemblyTypeName: Rewarded, Assembly-CSharp
-        m_MethodName: AddMoney
+      - m_Target: {fileID: 2054905663}
+        m_TargetAssemblyTypeName: Lisitner, Assembly-CSharp
+        m_MethodName: DebugFref
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1481,6 +1481,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628255375}
   m_CullTransparentMesh: 1
+--- !u!1 &2054905662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2054905664}
+  - component: {fileID: 2054905663}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2054905663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054905662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed207567973e1844198476bd85190a6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2054905664
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054905662}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.989814, y: 18.788042, z: 214.35216}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2130281046
 GameObject:
   m_ObjectHideFlags: 0

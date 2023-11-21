@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class LoadRewarded : MonoBehaviour,IUnityAdsLoadListener,IUnityAdsShowListener
 {
 
-    public UnityAction AdComplete;
+    public UnityEvent AdComplete;
 
     [SerializeField] private string _androidAdUnitId;
     [SerializeField] private string _iosAdUnitId;
@@ -34,7 +34,7 @@ public class LoadRewarded : MonoBehaviour,IUnityAdsLoadListener,IUnityAdsShowLis
 
     public void OnUnityAdsFailedToLoad(string placementId, UnityAdsLoadError error, string message)
     {
-        Debug.Log("Rewarded failed to load");
+        Debug.LogError("Rewarded failed to load");
     }
 
 
@@ -49,14 +49,16 @@ public class LoadRewarded : MonoBehaviour,IUnityAdsLoadListener,IUnityAdsShowLis
 
     public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState)
     {
-        if(placementId.Equals(_adUnitId) && showCompletionState.Equals(UnityAdsCompletionState.COMPLETED))
-            AdComplete.Invoke();
-            print("Rewarded show complete");
+        AdComplete?.Invoke();
+        if(placementId.Equals(_adUnitId) && showCompletionState.Equals(UnityAdsCompletionState.COMPLETED)){
+            Debug.Log("Rewarded show complete");
+            AdComplete?.Invoke();
+        }
     }
 
     public void OnUnityAdsShowFailure(string placementId, UnityAdsShowError error, string message)
     {
-         print("Rewarded show failure");
+        Debug.LogError("Rewarded show failure");
     }
 
     public void OnUnityAdsShowStart(string placementId)

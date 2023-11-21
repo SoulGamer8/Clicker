@@ -9,8 +9,6 @@ public class LoadInterstitial : MonoBehaviour,IUnityAdsLoadListener,IUnityAdsSho
 
     [SerializeField] private float _timeToShowAd;
     [SerializeField] private bool _isAdShow=true;
-    private float _timer=0;
-
     private string _adUnitId;
 
     private void Awake() {
@@ -51,7 +49,8 @@ public class LoadInterstitial : MonoBehaviour,IUnityAdsLoadListener,IUnityAdsSho
 
     public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState)
     {
-        _timer=0;
+        if(_isAdShow)
+            StartCoroutine(TimeShowAd());
     }
 
     public void OnUnityAdsShowFailure(string placementId, UnityAdsShowError error, string message)
@@ -61,14 +60,12 @@ public class LoadInterstitial : MonoBehaviour,IUnityAdsLoadListener,IUnityAdsSho
 
     public void OnUnityAdsShowStart(string placementId)
     {
-         print("Interstitial show start");
+        print("Interstitial show start");
     }
 
 
     IEnumerator TimeShowAd(){
-        while(true){
-           yield return new WaitForSeconds(_timeToShowAd);
-                LoadAd();
-        }
+        yield return new WaitForSeconds(_timeToShowAd);
+        LoadAd();
     }
 }

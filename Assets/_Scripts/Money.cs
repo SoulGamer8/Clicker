@@ -5,11 +5,7 @@ public class Money : MonoBehaviour
 {
     [SerializeField] private int _money;
     [SerializeField] private TMP_Text _moneyText;
-    [SerializeField] private LoadRewarded loadRewarded;
 
-    private void OnEnable() {
-        loadRewarded.AdComplete += Reward;
-    }
 
     public void AddMoney(){
         _money++;

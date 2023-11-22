@@ -17,7 +17,7 @@ public class Rewarded : MonoBehaviour
         _money = GetComponent<Money>();
     }
 
-    public void AddMoney(){
-        _money.AddMoney(_baseMoney);
-    }
+    // public void AddMoney(){
+    //     _money.AddMoney(_baseMoney);
+    // }
 }

@@ -12,10 +12,10 @@ public class Money : MonoBehaviour
         UpdateUI();
     }
 
-    public void AddMoney(int value){
-        _money+=value;
-        UpdateUI();
-    }
+    // public void AddMoney(int value){
+    //     _money+=value;
+    //     UpdateUI();
+    // }
 
     public void Reward(){
         Debug.Log("Test");

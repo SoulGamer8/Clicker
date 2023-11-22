@@ -11,13 +11,9 @@ public class Rewarded : MonoBehaviour
 
     [SerializeField] private int _baseMoney;
 
-    private Money _money;
+    [SerializeField] private Wallet wallet;
 
-    private void Awake() {
-        _money = GetComponent<Money>();
+    public void AddMoney(){
+        wallet.AddMoney(_baseMoney);
     }
-
-    // public void AddMoney(){
-    //     _money.AddMoney(_baseMoney);
-    // }
 }

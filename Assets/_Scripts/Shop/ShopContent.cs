@@ -13,6 +13,7 @@ public class ShopContent : MonoBehaviour
         for(int i=0;i<_shopItemSO.Length;i++){
             GameObject shopItem;
             shopItem = Instantiate(_shopItemPrefab,transform);
+            shopItem.GetComponent<ControllerShopItem>().SetShopItem(_shopItemSO[i]);
             NewPosition(i);
             shopItem.GetComponent<RectTransform>().anchoredPosition  = _currentPosition;
 
@@ -21,6 +22,5 @@ public class ShopContent : MonoBehaviour
 
     private void NewPosition(int i){
        _currentPosition.y = -((_shopItemPrefab.GetComponent<RectTransform>().rect.height+_merge)*i);
-        Debug.Log(_currentPosition);
     }
 }

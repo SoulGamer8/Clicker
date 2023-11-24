@@ -4,12 +4,17 @@ using UnityEngine.UI;
 
 public class DisplayItem : MonoBehaviour
 {
-    [SerializeField] private ShopItemSO _shopItemSO;
     [SerializeField] private Image _image;
     [SerializeField] private TMP_Text _textName;
     [SerializeField] private TMP_Text _textDescription;
     [SerializeField] private TMP_Text _textPrice;
     [SerializeField] private TMP_Text _textBonus;
+
+    private ShopItemSO _shopItemSO;
+
+    private void Awake() {
+        _shopItemSO = GetComponent<ControllerShopItem>().GetShopItem();
+    }
 
     private void Start(){
         _image = _shopItemSO.Image;

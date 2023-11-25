@@ -11,7 +11,6 @@ public class AddBonus : MonoBehaviour
     private void Awake() {
         _wallet = Wallet.Instance;
         _clickManager = ClickManager.Instance;
-        Debug.Log(_shopItemSo);
     }
 
     private void Start() {

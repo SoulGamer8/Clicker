@@ -5,11 +5,18 @@ public class LoadRewarded : MonoBehaviour,IUnityAdsLoadListener,IUnityAdsShowLis
 {
 
     public UnityEvent AdComplete;
-
+    public UnityEvent AdFailed;
     [SerializeField] private string _androidAdUnitId;
     [SerializeField] private string _iosAdUnitId;
 
     private string _adUnitId;
+
+    private Wallet _wallet;
+    private ClickManager _clickManager;
+
+
+    private int _idBonus;
+    private int _value;
 
     private void Awake() {
 #if UNITY_IOS
@@ -17,10 +24,15 @@ public class LoadRewarded : MonoBehaviour,IUnityAdsLoadListener,IUnityAdsShowLis
 #elif UNITY_ANDROID
         _adUnitId = _androidAdUnitId;
 #endif
+
+    _wallet = Wallet.Instance;
+    _clickManager = ClickManager.Instance;
     }
 
-    public void LoadAd(int id){
-        print("Loading Rewarded");
+    public void LoadAd(int id,int value){
+        Debug.Log(value);
+        _idBonus = id;
+        _value = value;
         Advertisement.Load(_adUnitId,this);
     }
 
@@ -35,6 +47,7 @@ public class LoadRewarded : MonoBehaviour,IUnityAdsLoadListener,IUnityAdsShowLis
     public void OnUnityAdsFailedToLoad(string placementId, UnityAdsLoadError error, string message)
     {
         Debug.LogError("Rewarded failed to load");
+        AdFailed?.Invoke();
     }
 
 
@@ -49,16 +62,24 @@ public class LoadRewarded : MonoBehaviour,IUnityAdsLoadListener,IUnityAdsShowLis
 
     public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState)
     {
-        AdComplete?.Invoke();
+        SendReward();
         if(placementId.Equals(_adUnitId) && showCompletionState.Equals(UnityAdsCompletionState.COMPLETED)){
             Debug.Log("Rewarded show complete");
-            AdComplete?.Invoke();
+            SendReward();
         }
+    }
+
+    private void SendReward(){
+        if(_idBonus == 0)
+            _clickManager.BonusMultipleMoneyPerClick(_value);
+        else
+            _wallet.AddMoney(_value);
     }
 
     public void OnUnityAdsShowFailure(string placementId, UnityAdsShowError error, string message)
     {
         Debug.LogError("Rewarded show failure");
+        AdFailed?.Invoke();
     }
 
     public void OnUnityAdsShowStart(string placementId)

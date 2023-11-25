@@ -11,7 +11,6 @@ public class ClickManager : MonoBehaviour
     [SerializeField] private int _moneyPerClick=1;
     [SerializeField] private int _moneyPerSecond=5;
 
-    private bool _isMultipleActive= false;
     private int _multiple=1;
     
     private void Awake() {
@@ -34,14 +33,16 @@ public class ClickManager : MonoBehaviour
         _moneyPerClick +=value * _multiple;
     }
 
-    public void BonusMultipleMoneyPerClick(int multiple,float time){
+    public void BonusMultipleMoneyPerClick(int multiple){
         _multiple = multiple;
-        StartCoroutine(TimeActiveBonusMoneyPerClick(multiple,time));
+        StartCoroutine(TimeActiveBonusMoneyPerClick(multiple));
     }
 
-    IEnumerator TimeActiveBonusMoneyPerClick(int multiple,float time){
+    IEnumerator TimeActiveBonusMoneyPerClick(int multiple){
         _moneyPerClick*=multiple;
-        yield return new WaitForSeconds(time);
+        Debug.Log(_multiple);
+        Debug.Log(_moneyPerClick);
+        yield return new WaitForSeconds(30);
         _moneyPerClick/=multiple;
         _multiple =1;
     }

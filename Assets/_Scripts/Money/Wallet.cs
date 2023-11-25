@@ -32,6 +32,9 @@ public class Wallet : MonoBehaviour
     }
 
     #region Money 
+    public int GetMoney(){
+        return _money;
+    }
     public void AddMoney(int value){
         _money+=value;
         ConvertMoneyToString();

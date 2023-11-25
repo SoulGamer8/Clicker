@@ -44,8 +44,7 @@ public class SpawnRewardAd : MonoBehaviour
         GameObject button;
         button = Instantiate(_bonusButton[_idCurrentBonus],transform);
         button.transform.localPosition = _spawnPosition;
-        
-        if(_idCurrentBonus == 1)
+        if(_idCurrentBonus == 0)
             _value = _currentMultipleCounter;
         else 
             _value = _wallet.GetMoney() * _currentMoneyCounter;
@@ -59,7 +58,7 @@ public class SpawnRewardAd : MonoBehaviour
     }
 
     private void ButtonClick(){
-        Debug.Log(_value);
+        
         loadRewarded.LoadAd(_idCurrentBonus,_value);
         Destroy(transform.GetChild(0).gameObject);
     }
@@ -101,7 +100,6 @@ public class SpawnRewardAd : MonoBehaviour
     }
 
     private IEnumerator DestroyBonus(GameObject bonusButton){
-        Debug.Log("Start Destroy");
         yield return new WaitForSeconds(_timeDestroyObject);
         StartCoroutine(SpawnBonus());
         _idCurrentBonus = -1;

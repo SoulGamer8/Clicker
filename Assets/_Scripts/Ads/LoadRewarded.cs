@@ -30,7 +30,6 @@ public class LoadRewarded : MonoBehaviour,IUnityAdsLoadListener,IUnityAdsShowLis
     }
 
     public void LoadAd(int id,int value){
-        Debug.Log(value);
         _idBonus = id;
         _value = value;
         Advertisement.Load(_adUnitId,this);

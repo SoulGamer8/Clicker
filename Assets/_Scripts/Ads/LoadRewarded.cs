@@ -19,7 +19,7 @@ public class LoadRewarded : MonoBehaviour,IUnityAdsLoadListener,IUnityAdsShowLis
 #endif
     }
 
-    public void LoadAd(){
+    public void LoadAd(int id){
         print("Loading Rewarded");
         Advertisement.Load(_adUnitId,this);
     }

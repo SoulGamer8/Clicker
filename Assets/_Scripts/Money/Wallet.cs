@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Wallet : MonoBehaviour
 {
+    public static Wallet Instance { get; private set; }
+
     [SerializeField] private ClickManager _clickManager;
 
     [Header("Money")]
@@ -12,6 +14,14 @@ public class Wallet : MonoBehaviour
     [Header("Diamond")]
     [SerializeField] private int _diamond;
     [SerializeField] private UpdateTextUI _updateTextDiamondUI;
+
+
+    private void Awake() {
+        if (Instance != null && Instance != this) 
+            Destroy(this); 
+        else 
+            Instance = this; 
+    }
 
     private void OnEnable() {
         _clickManager.ClickedEvent +=AddMoney;

@@ -12,11 +12,10 @@ public class DisplayItem : MonoBehaviour
 
     private ShopItemSO _shopItemSO;
 
-    private void Awake() {
-        _shopItemSO = GetComponent<ControllerShopItem>().GetShopItem();
-    }
 
     private void Start(){
+        _shopItemSO = GetComponent<ControllerShopItem>().GetShopItem();
+        
         _image = _shopItemSO.Image;
         _textName.text = _shopItemSO.Name;
         _textDescription.text = _shopItemSO.Description;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Wallet : MonoBehaviour
+public class Wallet : MonoBehaviour, IDataPersistence
 {
     public static Wallet Instance { get; private set; }
 
@@ -22,6 +22,7 @@ public class Wallet : MonoBehaviour
         else 
             Instance = this; 
     }
+    
 
     private void OnEnable() {
         _clickManager.ClickedEvent +=AddMoney;
@@ -52,6 +53,10 @@ public class Wallet : MonoBehaviour
 
     private void ConvertMoneyToString(){
         _moneyString = _money.ToString();
+         UpdateUI();
+    }
+
+    private void UpdateUI(){
         _updateTextMoneyUI.UpdateUI(_moneyString);
     }
     #endregion
@@ -69,6 +74,20 @@ public class Wallet : MonoBehaviour
         else
             return false;
     }
+    #endregion
+
+    #region 
+
+    public void LoadData(GameData data){
+        _money = data.Money;
+        _diamond = data.Diamond;
+        UpdateUI();
+    }
+    public void SaveData(ref GameData data){
+        data.Money = _money;
+        data.Diamond = _diamond;
+    }
+
     #endregion
 
 }

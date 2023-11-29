@@ -5,14 +5,16 @@ using System.Linq;
 
 public class DataPersistenceManager : MonoBehaviour
 {
-    [Header("File Storage Config")]
+    [field: Header("File Storage Config")]
     [SerializeField] private string _fileName;
-
+    
     public static DataPersistenceManager Instance{get;private set;}
 
     private List<IDataPersistence> _dataPersistenceObjects;
     private GameData _gameData;
     private FileDataHandler _fileDataHandler;
+
+    public string GetFileName() => _fileName;
     private void Awake() {
         if(Instance != null)
             Debug.LogError("Found more than one Data Persistence Manager in the scene");

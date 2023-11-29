@@ -59,6 +59,7 @@ public class Wallet : MonoBehaviour, IDataPersistence
     private void UpdateUI(){
         _updateTextMoneyUI.UpdateUI(_moneyString);
     }
+    
     #endregion
 
     #region Diamond

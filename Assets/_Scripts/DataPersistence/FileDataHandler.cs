@@ -30,7 +30,7 @@ public class FileDataHandler
                 loadData = JsonUtility.FromJson<GameData>(dataToLoad);
             }
             catch(Exception e){
-            Debug.LogError("Error occured when trying to save data file:" +fullPath+"\n"+e);
+            Debug.LogError("Error occurred when trying to save data file:" +fullPath+"\n"+e);
             }
         }
         return loadData;
@@ -52,7 +52,7 @@ public class FileDataHandler
             }
         }
         catch(Exception e){
-            Debug.LogError("Error occured when trying to save data file:" +fullPath+"\n"+e);
+            Debug.LogError("Error occurred when trying to save data file:" +fullPath+"\n"+e);
         }
     }
 }

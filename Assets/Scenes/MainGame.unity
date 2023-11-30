@@ -578,6 +578,7 @@ MonoBehaviour:
   _updateTextMoneyUI: {fileID: 1063300644}
   _diamond: 0
   _updateTextDiamondUI: {fileID: 0}
+  _maxSecondAFK: 14400
 --- !u!4 &425332921
 Transform:
   m_ObjectHideFlags: 0
@@ -775,6 +776,8 @@ GameObject:
   m_Component:
   - component: {fileID: 692026393}
   - component: {fileID: 692026394}
+  - component: {fileID: 692026395}
+  - component: {fileID: 692026396}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -797,10 +800,10 @@ RectTransform:
   m_Father: {fileID: 232274755}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 300}
+  m_AnchoredPosition: {x: 0, y: -0.00048828125}
+  m_SizeDelta: {x: -1079.9999, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &692026394
 MonoBehaviour:
@@ -826,6 +829,46 @@ MonoBehaviour:
   _shopItemPrefab: {fileID: 8944017977678869144, guid: 425f01bafd9ed8f4599c3b3ec975a268, type: 3}
   _startPosition: {x: 0, y: 0, z: 0}
   _merge: 20
+--- !u!114 &692026395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692026392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
+--- !u!114 &692026396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692026392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 20
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &702497994
 GameObject:
   m_ObjectHideFlags: 0
@@ -1873,7 +1916,7 @@ MonoBehaviour:
   m_Content: {fileID: 692026393}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 0
+  m_MovementType: 1
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135

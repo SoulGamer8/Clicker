@@ -29,7 +29,6 @@ public class UpdateTextUI : MonoBehaviour
             case 0 :
                 return value.ToString();
             case 1:
-
                 return Mathf.Round((float)value).ToString() + "K";
             case 2:
                 return Mathf.Round((float)value).ToString() + "M";

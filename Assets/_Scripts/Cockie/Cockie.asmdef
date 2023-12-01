@@ -1,0 +1,16 @@
+{
+    "name": "Cockie",
+    "rootNamespace": "",
+    "references": [
+        "GUID:30125b14fe08a0f4db0d755b601f92d6"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

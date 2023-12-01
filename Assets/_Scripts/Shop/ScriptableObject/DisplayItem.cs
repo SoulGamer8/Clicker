@@ -16,7 +16,7 @@ public class DisplayItem : MonoBehaviour
     private void Start(){
         _shopItemSO = GetComponent<ControllerShopItem>().GetShopItem();
         
-        _image = _shopItemSO.Image;
+        _image.sprite = _shopItemSO.Image;
         _textName.text = _shopItemSO.Name;
         _textDescription.text = _shopItemSO.Description;
         _textPrice.text = _shopItemSO.Price.ToString();

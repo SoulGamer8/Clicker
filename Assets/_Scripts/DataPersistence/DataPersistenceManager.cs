@@ -38,10 +38,12 @@ public class DataPersistenceManager : MonoBehaviour
             Debug.Log("Save don't found");
             NewGame();
         }
-
-        foreach(IDataPersistence dataPersistenceObj in _dataPersistenceObjects){
-            dataPersistenceObj.LoadData(_gameData);
+        else{
+            foreach(IDataPersistence dataPersistenceObj in _dataPersistenceObjects){
+                dataPersistenceObj.LoadData(_gameData);
+            }
         }
+
     }
 
     public void SaveGame(){

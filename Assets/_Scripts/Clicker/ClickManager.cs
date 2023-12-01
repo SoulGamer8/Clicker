@@ -5,13 +5,13 @@ public class ClickManager : MonoBehaviour,IDataPersistence
 {
     public static ClickManager Instance { get; private set; }
 
-    public UnityAction<int> ClickedEvent; 
+    public UnityAction<double> ClickedEvent; 
 
-    [SerializeField] private int _moneyPerClick=1;
-    [SerializeField] private int _moneyPerSecond=5;
+    [SerializeField] private double _moneyPerClick=1;
+    [SerializeField] private double _moneyPerSecond=5;
 
 
-    private int _multiple=1;
+    private double _multiple=1;
 
     
     private void Awake() {
@@ -30,16 +30,16 @@ public class ClickManager : MonoBehaviour,IDataPersistence
         ClickedEvent?.Invoke(_moneyPerClick);
     }
 
-    public void AddMoneyPerClick(int value){
+    public void AddMoneyPerClick(double value){
         _moneyPerClick +=value * _multiple;
     }
 
-    public void BonusMultipleMoneyPerClick(int multiple){
+    public void BonusMultipleMoneyPerClick(double multiple){
         _multiple = multiple;
         StartCoroutine(TimeActiveBonusMoneyPerClick(multiple));
     }
 
-    IEnumerator TimeActiveBonusMoneyPerClick(int multiple){
+    IEnumerator TimeActiveBonusMoneyPerClick(double multiple){
         _moneyPerClick*=multiple;
         Debug.Log(_multiple);
         Debug.Log(_moneyPerClick);

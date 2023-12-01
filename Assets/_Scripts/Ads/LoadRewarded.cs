@@ -16,7 +16,7 @@ public class LoadRewarded : MonoBehaviour,IUnityAdsLoadListener,IUnityAdsShowLis
 
 
     private int _idBonus;
-    private int _value;
+    private double _value;
 
     private void Awake() {
 #if UNITY_IOS
@@ -29,7 +29,7 @@ public class LoadRewarded : MonoBehaviour,IUnityAdsLoadListener,IUnityAdsShowLis
     _clickManager = ClickManager.Instance;
     }
 
-    public void LoadAd(int id,int value){
+    public void LoadAd(int id,double value){
         _idBonus = id;
         _value = value;
         Advertisement.Load(_adUnitId,this);

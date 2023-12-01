@@ -14,8 +14,8 @@ public class AndroidPushNotificationManager : MonoBehaviour
     }
 
     public void RequestAuthorization(){
-        if(!Permission.HasUserAuthorizedPermission("android.permission.POST_NOTIFACATIONS")){
-            Permission.RequestUserPermission("android.permission.POST_NOTIFACATIONS");
+        if(!Permission.HasUserAuthorizedPermission("android.permission.POST_NOTIFICATIONS")){
+            Permission.RequestUserPermission("android.permission.POST_NOTIFICATIONS");
         }
     }
 

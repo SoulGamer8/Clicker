@@ -23,7 +23,7 @@ public class SpawnRewardAd : MonoBehaviour
     [SerializeField] private int _baseMoneyCounter;
     [SerializeField] private int _maxMoneyCounter;
     private int _currentMoneyCounter;
-    private int _value;
+    private double _value;
    
     private void Awake() {
         _currentMultipleCounter = _baseMultipleCounter;

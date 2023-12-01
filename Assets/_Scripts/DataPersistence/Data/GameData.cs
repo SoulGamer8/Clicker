@@ -3,11 +3,11 @@ using System;
 [Serializable]
 public class GameData 
 {
-    public int Money;
+    public double Money;
     public int Diamond;
     
-    public int MoneyPerClick;
-    public int MoneyPerSecond;
+    public double MoneyPerClick;
+    public double MoneyPerSecond;
 
     public double TimeExit;
 

@@ -8,7 +8,7 @@ public class Wallet : MonoBehaviour, IDataPersistence
     [SerializeField] private ClickManager _clickManager;
 
     [Header("Money")]
-    [SerializeField] private int _money;
+    [SerializeField] private double _money;
     private string _moneyString;
     [SerializeField] private UpdateTextUI _updateTextMoneyUI;
     
@@ -38,31 +38,26 @@ public class Wallet : MonoBehaviour, IDataPersistence
     }
 
     #region Money 
-    public int GetMoney(){
+    public double GetMoney(){
         return _money;
     }
-    public void AddMoney(int value){
+    public void AddMoney(double value){
         _money+=value;
-        ConvertMoneyToString();
+        UpdateUI();
     }
 
     public bool TakeMoney(int value){
         if(_money-value >=0 ){
             _money-=value;
-            ConvertMoneyToString();
+            UpdateUI();
             return true;
         }
         else
             return false;
     }
 
-    private void ConvertMoneyToString(){
-        _moneyString = _money.ToString();
-         UpdateUI();
-    }
-
     private void UpdateUI(){
-        _updateTextMoneyUI.UpdateUI(_moneyString);
+        _updateTextMoneyUI.UpdateUI(_money);
     }
     
     #endregion
@@ -104,7 +99,7 @@ public class Wallet : MonoBehaviour, IDataPersistence
         return timeExit.ToUnixTimeSeconds();
     }
 
-    private void AFKTime(double timeExit,int moneyPerSecond){
+    private void AFKTime(double timeExit,double moneyPerSecond){
         DateTimeOffset currentTime = new DateTimeOffset(DateTime.UtcNow);
         double currentTimeUNIX = currentTime.ToUnixTimeSeconds();
         double _seconds = currentTimeUNIX - timeExit;

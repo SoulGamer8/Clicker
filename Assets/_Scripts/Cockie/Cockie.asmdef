@@ -1,6 +1,6 @@
 {
     "name": "Cockie",
-    "rootNamespace": "",
+    "rootNamespace": "NeverMindEver.Cockie",
     "references": [
         "GUID:30125b14fe08a0f4db0d755b601f92d6"
     ],

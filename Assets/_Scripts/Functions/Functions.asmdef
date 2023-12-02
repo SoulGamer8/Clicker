@@ -1,9 +1,7 @@
 {
-    "name": "PushNotification",
-    "rootNamespace": "NeverMindEver.PushNotification",
-    "references": [
-        "GUID:ac145e6b8c6034cdbadc8c6e26aedbcf"
-    ],
+    "name": "Functions",
+    "rootNamespace": "NeverMindEver.Functions",
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

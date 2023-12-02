@@ -43,7 +43,17 @@ namespace NeverMindEver.Shop{
         }
 
         private void Bonus(){
-            _clickManager.AddMoneyPerClick(_shopItemSo.Bonus);
+            switch((int)_shopItemSo._typeBonus){
+                case 0:
+                    _clickManager.AddMoneyPerClick(_shopItemSo.Bonus);
+                    break;
+                case 1:
+                    _clickManager.AddMoneyPerSecond(_shopItemSo.Bonus);
+                    break;
+                case 2:
+                    _clickManager.AddDamage(_shopItemSo.Bonus);
+                    break;
+            }
             _shopItemSo.Level++;
         }
     }

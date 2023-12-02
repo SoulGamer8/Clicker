@@ -8,11 +8,10 @@ namespace NeverMindEver.Money{
     {
         public static Wallet Instance { get; private set; }
 
-        [SerializeField] private ClickManager _clickManager;
+        private ClickManager _clickManager;
 
         [Header("Money")]
         [SerializeField] private double _money;
-        private string _moneyString;
         [SerializeField] private UpdateTextUI _updateTextMoneyUI;
         
         [Header("Diamond")]
@@ -21,16 +20,15 @@ namespace NeverMindEver.Money{
 
         [Header("AFK")]
         [SerializeField] private int _maxSecondAFK;
-        private double _timeExitUNIX;
-
 
         private void Awake() {
             if (Instance != null && Instance != this) 
                 Destroy(this); 
             else 
                 Instance = this; 
+
+            _clickManager = ClickManager.Instance;
         }
-        
 
         private void OnEnable() {
             _clickManager.ClickedEvent +=AddMoney;

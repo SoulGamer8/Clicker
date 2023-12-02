@@ -2,7 +2,8 @@
     "name": "Cockie",
     "rootNamespace": "NeverMindEver.Cockie",
     "references": [
-        "GUID:30125b14fe08a0f4db0d755b601f92d6"
+        "GUID:30125b14fe08a0f4db0d755b601f92d6",
+        "GUID:773e1d7f79d84ee4da90b95adc64e191"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

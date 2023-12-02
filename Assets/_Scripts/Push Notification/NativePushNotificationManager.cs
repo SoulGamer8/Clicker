@@ -5,7 +5,7 @@ namespace NeverMindEver.PushNotification{
     public class NativePushNotificationManager : MonoBehaviour
     {
         [SerializeField] private AndroidPushNotificationManager androidPushNotificationManager;
-        private void OnApplicationQuit() {
+        private void OnApplicationPause() {
             CallNotification("Miss you","Return to game we miss you",10);
             CallNotification("Return to game","Your storage 50% filled",7200);
             CallNotification("Return to game","Your storage is full \n Time to return in game",14400);

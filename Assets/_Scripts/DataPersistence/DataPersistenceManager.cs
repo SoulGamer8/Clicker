@@ -7,6 +7,7 @@ namespace NeverMindEver.DataPersistent{
     {
         [field: Header("File Storage Config")]
         [SerializeField] private string _fileName;
+        [SerializeField] private bool _isUseEncryption = true;
         
         public static DataPersistenceManager Instance{get;private set;}
 
@@ -22,7 +23,7 @@ namespace NeverMindEver.DataPersistent{
         }
 
         private void Start() {
-            _fileDataHandler = new FileDataHandler(Application.persistentDataPath,_fileName);
+            _fileDataHandler = new FileDataHandler(Application.persistentDataPath,_fileName,_isUseEncryption);
             _dataPersistenceObjects = FindAllDataPersistenceObjects();
             LoadGame();
         }
@@ -54,7 +55,11 @@ namespace NeverMindEver.DataPersistent{
         }
 
         private void OnApplicationQuit() {
-            SaveGame();
+            SaveGame(); 
+        }
+
+        private void OnApplicationPause() {
+            SaveGame(); 
         }
 
         private List<IDataPersistence> FindAllDataPersistenceObjects(){

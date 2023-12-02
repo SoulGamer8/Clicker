@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using NeverMindEver.Money;
+using NeverMindEver.Clicker;
 
 namespace NeverMindEver.Cookie{
     public class CookiePhase : MonoBehaviour
@@ -8,18 +9,27 @@ namespace NeverMindEver.Cookie{
         [Header("Cookie")]
         [SerializeField] private Sprite[] _phaseCookie;
         private int _currentPhase=0;
-        [SerializeField] private int _clickToChangePhase;
-        private int _currentClick;
+        [SerializeField] private double _baseHealth;
+        private double _currentHealth;
         private Image _cookies;
         
         [Header("Reward")]
         [SerializeField] private double _rewardForDestroy;
         [SerializeField] private int _multiple;
         private Wallet wallet;
+        private ClickManager _clickManager;
+
+        private void OnEnable() {
+            _clickManager.DamageEvent += TakeDamage;
+        }
+
+        private void OnDisable() {
+            _clickManager.DamageEvent -= TakeDamage;
+        }
 
         private void Awake(){
             _cookies = GetComponent<Image>();
-        
+            _clickManager = ClickManager.Instance;
         }
 
         private void Start() {
@@ -28,13 +38,11 @@ namespace NeverMindEver.Cookie{
             ChangePhase();
         }
 
-        public void AddClick(){
-            _currentClick++;
-            Debug.Log(_currentClick);
-            if(_currentClick >=_clickToChangePhase){
-                _currentPhase++;
+        public void TakeDamage(double value){
+            Debug.Log(value);
+            _currentHealth -= value;
+            if(_currentHealth<=0){
                 ChangePhase();
-                _currentClick=0;
             }
         }
 
@@ -44,11 +52,18 @@ namespace NeverMindEver.Cookie{
                 GiveReward();
             }
             _cookies.sprite = _phaseCookie[_currentPhase];
+            _currentPhase++;
+            _currentHealth = _baseHealth;
+        }
+
+        private void RiseHealth(){
+            _baseHealth *=1.5;
         }
 
         private void GiveReward(){
             wallet.AddMoney(_rewardForDestroy);
             _rewardForDestroy *= _multiple;
+            RiseHealth();
         }
     }
 }

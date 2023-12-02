@@ -9,19 +9,21 @@ namespace NeverMindEver.Clicker{
         public static ClickManager Instance { get; private set; }
 
         public UnityAction<double> ClickedEvent; 
+        public UnityAction<double> DamageEvent;
 
         [SerializeField] private double _moneyPerClick=1;
         [SerializeField] private double _moneyPerSecond=5;
-
+        [SerializeField] private double _damage;
 
         private double _multiple=1;
-
         
         private void Awake() {
             if(Instance != null && Instance != this)
                 Debug.LogError("Found more than one Click Manager in the scene");
             else
                 Instance = this;
+
+            
         }
 
         private void Start() {
@@ -31,6 +33,7 @@ namespace NeverMindEver.Clicker{
         #region MoneyForClick
         public void Click(){
             ClickedEvent?.Invoke(_moneyPerClick);
+            DamageEvent?.Invoke(_damage);
         }
 
         public void AddMoneyPerClick(double value){
@@ -53,8 +56,8 @@ namespace NeverMindEver.Clicker{
         #endregion
 
         #region MoneyPerSecond
-        public void AddMoneyPerSecond(){
-
+        public void AddMoneyPerSecond(double value){
+            _moneyPerSecond +=value;
         }
 
         IEnumerator MoneyPerSecond(){
@@ -62,6 +65,12 @@ namespace NeverMindEver.Clicker{
                 yield return new WaitForSeconds(1);
                 ClickedEvent?.Invoke(_moneyPerSecond);
             }
+        }
+        #endregion
+
+        #region  Damage
+        public void AddDamage(double value){
+            _damage +=value;
         }
         #endregion
 

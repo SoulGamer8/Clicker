@@ -9,7 +9,8 @@ public class ShopItemSO : ScriptableObject {
     public Sprite Image;
     public string Name;
     public string Description;
-    public int Price;
+    public double BasePrice;
+    public int Level;
 
     public enum  TypeBonus{MoneyPerClick, MoneyPerSecond, DamagePerClick};
     public TypeBonus _typeBonus ;  

@@ -1,21 +1,24 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AddBonus : MonoBehaviour
+public class BuyItem : MonoBehaviour
 {
-    [SerializeField]private ShopItemSO _shopItemSo;
+    [Header("Price")]
+    [SerializeField] private float _exponential = 1.5f;
+    [SerializeField] private float  _coefficient = 1;
+
+    
+    private ShopItemSO _shopItemSo;
     
     private Wallet _wallet;
     private ClickManager _clickManager;
 
-    private void Awake() {
+    private void Start() {
         _wallet = Wallet.Instance;
         _clickManager = ClickManager.Instance;
-    }
 
-    private void Start() {
         _shopItemSo = GetComponent<ControllerShopItem>().GetShopItem();
-
 
         Button button;
         button = GetComponent<Button>();
@@ -23,19 +26,21 @@ public class AddBonus : MonoBehaviour
     }
 
     public void Buy(){
-        if(_wallet.TakeMoney(_shopItemSo.Price)){
+        if(_wallet.TakeMoney(_shopItemSo.BasePrice)){
             Bonus();
             PriceUp();
+            GetComponent<DisplayItem>().UpdateUI();
         }
         else
             Debug.Log("No money");
     }
 
     private void PriceUp(){
-        _shopItemSo.Price *= 2;
+        _shopItemSo.BasePrice =Math.Round(_coefficient* Mathf.Pow(_shopItemSo.Level,_exponential) + _shopItemSo.BasePrice);
     }
 
     private void Bonus(){
         _clickManager.AddMoneyPerClick(_shopItemSo.Bonus);
+        _shopItemSo.Level++;
     }
 }

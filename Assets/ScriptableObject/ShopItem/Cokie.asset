@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 884c58dbf5ba1fd4cbd5dffbb682813e, type: 3}
   m_Name: Cokie
   m_EditorClassIdentifier: 
-  Image: {fileID: 0}
+  Image: {fileID: 1643070004, guid: c19932690d147a244aff1b5562f85ba0, type: 3}
   Name: Cokie
   Description: Gives power to your click
-  Price: 10
+  BasePrice: 151.67231011390686
+  Level: 10
   _typeBonus: 0
   Bonus: 1

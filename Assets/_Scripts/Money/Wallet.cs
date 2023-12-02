@@ -46,7 +46,7 @@ public class Wallet : MonoBehaviour, IDataPersistence
         UpdateUI();
     }
 
-    public bool TakeMoney(int value){
+    public bool TakeMoney(double value){
         if(_money-value >=0 ){
             _money-=value;
             UpdateUI();

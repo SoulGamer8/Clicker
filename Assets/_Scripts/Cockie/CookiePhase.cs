@@ -30,7 +30,6 @@ namespace NeverMindEver.Cookie{
 
         public void AddClick(){
             _currentClick++;
-            Debug.Log(_currentClick);
             if(_currentClick >=_clickToChangePhase){
                 _currentPhase++;
                 ChangePhase();

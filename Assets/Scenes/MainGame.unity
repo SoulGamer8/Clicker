@@ -1097,6 +1097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fileName: data.game
+  _isUseEncryption: 1
 --- !u!4 &722575426
 Transform:
   m_ObjectHideFlags: 0
@@ -1121,7 +1122,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 727371344}
-  - component: {fileID: 727371347}
   - component: {fileID: 727371346}
   - component: {fileID: 727371345}
   m_Layer: 5
@@ -1191,18 +1191,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 727371343}
   m_CullTransparentMesh: 1
---- !u!114 &727371347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727371343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfdb0978b2b0fad41997cf7af3f92a95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &897637596
 GameObject:
   m_ObjectHideFlags: 0
@@ -2392,7 +2380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95040dc5ed87fd54c85fb64e559f6644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shop: {fileID: 727371347}
+  _shop: {fileID: 0}
 --- !u!4 &2117489253
 Transform:
   m_ObjectHideFlags: 0

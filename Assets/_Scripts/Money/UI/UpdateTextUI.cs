@@ -1,6 +1,8 @@
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
+using NeverMindEver.Functions;
+
 
 public class UpdateTextUI : MonoBehaviour
 {

@@ -1,6 +1,6 @@
 {
     "name": "Shop",
-    "rootNamespace": "",
+    "rootNamespace": "NeverMindEver.Shop",
     "references": [
         "GUID:6055be8ebefd69e48b49212b09b47b2f",
         "GUID:30125b14fe08a0f4db0d755b601f92d6",

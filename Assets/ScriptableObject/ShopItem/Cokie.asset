@@ -15,7 +15,7 @@ MonoBehaviour:
   Image: {fileID: 1643070004, guid: c19932690d147a244aff1b5562f85ba0, type: 3}
   Name: Cokie
   Description: Gives power to your click
-  BasePrice: 151.67231011390686
-  Level: 10
+  BasePrice: 94
+  Level: 8
   _typeBonus: 0
   Bonus: 1

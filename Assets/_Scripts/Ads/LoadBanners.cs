@@ -9,7 +9,7 @@ namespace NeverMindEver.Ads{
         
         private string _adUnitId;
 
-        BannerPosition bannerPosition = BannerPosition.BOTTOM_CENTER;
+        [SerializeField] BannerPosition bannerPosition = BannerPosition.BOTTOM_CENTER;
 
         private void Start() {
     #if UNITY_IOS
@@ -37,7 +37,7 @@ namespace NeverMindEver.Ads{
         }
 
         void OnBannerLoadedError(string error){
-        Debug.Log("Banner failed to load" + error);
+        Debug.LogError("Banner failed to load" + error);
         }
 
         public void ShowBannerAd(){
@@ -63,7 +63,8 @@ namespace NeverMindEver.Ads{
         } 
 
         public void HideBannerAd(){
-            Advertisement.Banner.Hide();
+            if (Advertisement.Banner.isLoaded)
+                Advertisement.Banner.Hide();
         }
     }
 }

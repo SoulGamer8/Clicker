@@ -39,7 +39,6 @@ namespace NeverMindEver.Cookie{
         }
 
         public void TakeDamage(double value){
-            Debug.Log(value);
             _currentHealth -= value;
             if(_currentHealth<=0){
                 ChangePhase();

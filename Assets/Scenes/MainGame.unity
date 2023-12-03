@@ -245,6 +245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moneyPerClick: 1
   _moneyPerSecond: 5
+  _damage: 10
 --- !u!4 &248401954
 Transform:
   m_ObjectHideFlags: 0
@@ -508,18 +509,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 419632149}
-        m_TargetAssemblyTypeName: CookiePhase, Clicker
-        m_MethodName: AddClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &419632147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -574,7 +563,7 @@ MonoBehaviour:
   - {fileID: 285824797, guid: 2adb2142598bf6c449733df50150c6ff, type: 3}
   - {fileID: 1636014934, guid: 2adb2142598bf6c449733df50150c6ff, type: 3}
   - {fileID: -70883056, guid: 2adb2142598bf6c449733df50150c6ff, type: 3}
-  _clickToChangePhase: 5
+  _baseHealth: 10
   _rewardForDestroy: 10000
   _multiple: 20
 --- !u!114 &419632150
@@ -618,7 +607,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3aaea84fd6f12443a2c7d89f1e521fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clickManager: {fileID: 248401953}
   _money: 0
   _updateTextMoneyUI: {fileID: 1063300644}
   _diamond: 0
@@ -2380,7 +2368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95040dc5ed87fd54c85fb64e559f6644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shop: {fileID: 0}
+  _shop: {fileID: 727371343}
 --- !u!4 &2117489253
 Transform:
   m_ObjectHideFlags: 0
